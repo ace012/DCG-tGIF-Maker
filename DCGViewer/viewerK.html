@@ -36,7 +36,8 @@
     </script>
 
     <div>mN   : <input id="mN" type="text" name="mN" autofocus=true></div>
-    <div>size : <input id="size" type="number" name="size"></div>
+    <div>width : <input id="width" type="number" name="width"></div>
+    <div>height : <input id="height" type="number" name="height"></div>
     <div>mS   : <input id="mS" type="number" name="mS"></div>
     <div>mX   : <input id="mX" type="number" name="mX"></div>
     <div>mY   : <input id="mY" type="number" name="mY"></div>
@@ -44,7 +45,8 @@
     <script>
       var searchParams = (new URL(window.location.href)).searchParams;
       document.getElementById('mN').value = searchParams.get('mN') || 'c417_02';
-      document.getElementById('size').value = searchParams.get('size') || 1024;
+      document.getElementById('width').value = searchParams.get('width') || 1024;
+      document.getElementById('height').value = searchParams.get('height') || 1024;
       document.getElementById('mS').value = searchParams.get('mS') || 1;
       document.getElementById('mX').value = searchParams.get('mX') || 0;
       document.getElementById('mY').value = searchParams.get('mY') || 0;
@@ -53,12 +55,13 @@
     <script>
       function reload() {
         mN = document.getElementById('mN').value;
-        size = document.getElementById('size').value;
+        width = document.getElementById('width').value;
+        height = document.getElementById('height').value;
         mS = document.getElementById('mS').value;
         mX = document.getElementById('mX').value;
         mY = document.getElementById('mY').value;
         newLink = location.protocol + '//' + location.host + location.pathname;
-        newLink = newLink + '?mN=' + mN + '&size=' + size + '&mS=' + mS + '&mX=' + mX + '&mY=' + mY;
+        newLink = newLink + '?mN=' + mN + '&width=' + width + '&height=' + height + '&mS=' + mS + '&mX=' + mX + '&mY=' + mY;
         location.href = newLink;
       };
     </script>

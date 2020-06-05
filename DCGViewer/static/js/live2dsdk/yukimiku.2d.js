@@ -4,7 +4,8 @@ var canvasSize = 1024,
     modelScale = 1.0,
     modelX = 0.0,
     modelY = 0.0,
-    motionIdle = null, motionClick = null
+    motionIdle = null, motionClick = null,
+    canvasWidth = 1024, canvasHeight = 1024
 
 function totsugeki() {
   if(motionMgr !== null && motionClick !== null) {
@@ -21,9 +22,13 @@ function initModel(pathDir) {
 
   // get variables from GET
   var searchParams = (new URL(window.location.href)).searchParams,
-      size = searchParams.get('size') || canvasSize
-  canvas.width = size
-  canvas.height = size
+      canvasWidth = searchParams.get('width') || canvasSize
+  var searchParams = (new URL(window.location.href)).searchParams,
+      canvasHeight = searchParams.get('height') || canvasSize
+
+  canvas.width = canvasWidth
+  canvas.height = canvasHeight
+
   var mS = searchParams.get('mS')
   if(mS) modelScale = mS
   var mX = searchParams.get('mX')
@@ -164,14 +169,29 @@ function draw(gl) {
   }
 
   // something about model matrix
-  var height = live2DModel.getCanvasHeight()
   var width = live2DModel.getCanvasWidth()
+  var height = live2DModel.getCanvasHeight()
+
   var modelMatrix = new L2DModelMatrix(width, height)
 
   modelMatrix.setWidth(modelScale)
   modelMatrix.setCenterPosition(modelX, modelY)
 
-  live2DModel.setMatrix(modelMatrix.getArray())
+  var modelMatrixArray = modelMatrix.getArray()
+  var scaleX = 1, scaleY = 1
+  var w = canvas.width, h = canvas.height
+
+  if (w < h) {
+    scaleX = h / w
+  }
+  modelMatrixArray[0] *= scaleX
+
+  if (w > h) {
+    scaleY = w / h
+  }
+  modelMatrixArray[5] *= scaleY
+
+  live2DModel.setMatrix(modelMatrixArray)
 
   // start idle animation
   if(motionMgr.isFinished()) {
