@@ -1,0 +1,21 @@
+{
+  "name": "Destiny-Child-Live2D-Viewer",
+  "version": "1.0.0",
+  "description": "Centralized repository for Destiny Child Live2D",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "5.13.0",
+    "http-server": "0.11.1"
+  },
+  "scripts": {
+    "start": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "N/A"
+  },
+  "author": "ToxicWayz, Arsylk",
+  "license": "MIT"
+}

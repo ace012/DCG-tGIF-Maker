@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live2D</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    body, html {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    canvas {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+    <script src="static/js/live2dsdk/live2d.min.js"></script>
+    <script src="static/js/live2dsdk/Live2DFramework.js"></script>
+    <script src="static/js/live2dsdk/PlatformManager.js"></script>
+    <script src="static/js/live2dsdk/ModelSettingJson.js"></script>
+	<script src="static/js/live2dsdk/yukimiku.2d.js"></script>
+
+  <script src="static/js/live2dsdk/pngScript.js"></script>
+
+  <script type="text/javascript" src="static/jszip/dist/jszip.js"></script>
+  <script type="text/javascript" src="static/jszip/test/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="static/jszip/vendor/FileSaver.js"></script>
+
+  <body onload="initModel('kr')" style="margin: 0; padding: 0;">
+    <canvas id="canvas" class="maxwidth" width="500px" height="800px" style="margin: 10px;" onclick="totsugeki()"></canvas>
+    <select id="modelMotions" class="select-motions" style="display: none;"></select>
+    <script>
+            let canvas = document.getElementById("canvas");
+    </script>
+
+    <div>mN   : <input id="mN" type="text" name="mN" autofocus=true></div>
+    <div>size : <input id="size" type="number" name="size"></div>
+    <div>mS   : <input id="mS" type="number" name="mS"></div>
+    <div>mX   : <input id="mX" type="number" name="mX"></div>
+    <div>mY   : <input id="mY" type="number" name="mY"></div>
+
+    <script>
+      var searchParams = (new URL(window.location.href)).searchParams;
+      document.getElementById('mN').value = searchParams.get('mN') || 'c417_02';
+      document.getElementById('size').value = searchParams.get('size') || 1024;
+      document.getElementById('mS').value = searchParams.get('mS') || 1;
+      document.getElementById('mX').value = searchParams.get('mX') || 0;
+      document.getElementById('mY').value = searchParams.get('mY') || 0;
+    </script>
+
+    <script>
+      function reload() {
+        mN = document.getElementById('mN').value;
+        size = document.getElementById('size').value;
+        mS = document.getElementById('mS').value;
+        mX = document.getElementById('mX').value;
+        mY = document.getElementById('mY').value;
+        newLink = location.protocol + '//' + location.host + location.pathname;
+        newLink = newLink + '?mN=' + mN + '&size=' + size + '&mS=' + mS + '&mX=' + mX + '&mY=' + mY;
+        location.href = newLink;
+      };
+    </script>
+
+    <div><button type="button" name="reload" onclick="javascript:reload();">Reload Child</button></div>
+
+    <p></p>
+
+    <div>grabLimit     : <input id="grabLimit" type="number" name="grabLimit" value="100"></div>
+    <div>grabRate (ms) : <input id="grabRate" type="number" name="grabRate" value="30"></div>
+
+    <div>
+      <button type="button" name="attackHQLS" onclick="javascript:getPNGsHQLS(document.getElementById('grabLimit').value, document.getElementById('grabRate').value, 'attack');">get attack motion PNGs HQLS</button>
+      <button type="button" name="attackHQLS" onclick="javascript:getPNGsHQLS(document.getElementById('grabLimit').value, document.getElementById('grabRate').value, 'idle');">get idle motion PNGs HQLS</button>
+    </div>
+    <div>
+      <button type="button" name="attackLQHS" onclick="javascript:getPNGsLQHS(document.getElementById('grabLimit').value, document.getElementById('grabRate').value, 'attack');">get attack motion PNGs LQHS</button>
+      <button type="button" name="attackLQHS" onclick="javascript:getPNGsLQHS(document.getElementById('grabLimit').value, document.getElementById('grabRate').value, 'idle');">get idle motion PNGs LQHS</button>
+    </div>
+
+  </body>
+
+</html>
