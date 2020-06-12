@@ -3,7 +3,7 @@ DCG tGIF Maker
 
 ## Description
 
-본 툴은 약간 수정된 뷰어 사이트(https://DCG-tGIF.github.io/)를 통해 데스티니 차일드 캐릭터의 투명 배경 이미지 파일을 프레임 단위의 PNG 파일로 추출할 수 있습니다. 이를 통해 원하는 차일드의 투명 배경 움짤을 만들 수 있습니다.
+본 툴은 약간 수정된 뷰어 사이트 (https://DCG-tGIF.github.io/) 를 통해 데스티니 차일드 캐릭터의 투명 배경 이미지 파일을 프레임 단위의 PNG 파일로 추출할 수 있습니다. 이를 통해 원하는 차일드의 투명 배경 움짤을 만들 수 있습니다.
 
 이 툴은 데스티니 차일드 캐릭터 Live2D 뷰어 사이트인 Live2D-DCG.github.io (https://github.com/Live2D-DCG/Live2D-DCG.github.io) 사이트를 수정하여 만들어졌습니다.
 
