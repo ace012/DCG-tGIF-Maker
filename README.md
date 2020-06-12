@@ -5,7 +5,7 @@ DCG tGIF Maker
 
 **_DCG tGIF Maker_** generates transparent GIF file of DCG(Destiny Child game)'s character. 
 
-It's *viewerK.html* extracts transparent PNG files of DCG(Destiny Child game)'s character frame by frame.
+It's *viewer* (https://DCG-tGIF.github.io/) extracts transparent PNG files of DCG(Destiny Child game)'s character frame by frame.
 And using *apngasm_gui/apng2gif_gui* contained on it, you can make animated image file as you want.
 
  - 한국어 설명은 README_Korean.md 에서 볼 수 있습니다.
@@ -15,22 +15,32 @@ And using *apngasm_gui/apng2gif_gui* contained on it, you can make animated imag
 
 This tool is made by modifying some source codes of viewer site [Live2D-DCG.github.io](https://live2d-dcg.github.io/) (https://github.com/Live2D-DCG/Live2D-DCG.github.io).
 
-Also, [JSZip](https://stuk.github.io/jszip/) is used to compress images on the browser to be downloaded at once.
+[apngasm](http://apngasm.sourceforge.net/), [apng2gif](http://apng2gif.sourceforge.net/) tools can download for each sites, and also they are included in this tool.
+
+[JSZip](https://stuk.github.io/jszip/) is used to compress images on the browser to be downloaded at once.
 
 
-## Requirements
+## Usage
 
-There are several requirements for using this tool.
+This is the process how to make GIF file on local.
 
-    1. Chromium browser (or Chrome)
-    2. PNGs to APNG tool (apngasm)
-    3. APNG to GIF tool (apng2gif)
-    4. Unpacked child file
-
-The materials 1~3 are included here.
+    1. Change the character canvas using reload, and get images (HQLS recommended). This process needs a few minutes.
+    2. Make animated PNG file using apngasm_gui.
+    3. Make animated GIF file using apng2gif_gui.
 
 
-## Caution
+## Additional
+
+On the viewer site, there are Korean pck files only.
+
+But you can also extract images of other pck files, such as global (or teen) version, or custom pck files.
+
+I plan to add that more easy and comfortable version later, but I don't know when it will be.
+
+If you want to get ones right now, you can extract it as following this below.
+
+
+### Caution
 
 If you will run viewer of this tool on web server, there is no problem.
 
@@ -42,13 +52,13 @@ You can bypass CORS in local html by adding "--allow-file-access-from-files" arg
 
 This is the detail progress.
 
-    1. Make a shortcut of GoogleChromePortable64/GoogleChromePortable.exe (or your browser used for viewer).
+    1. Make a shortcut of your browser used for viewer.
     2. Right click the shortcut and press properties.
     3. Add "--allow-file-access-from-files" text on the end of the Target Textbox.
     4. Execute shortcut.
 
 
-## Usage
+### Usage
 
 This is the process how to make GIF file on local.
 
@@ -59,41 +69,9 @@ This is the process how to make GIF file on local.
     4. Make animated PNG file using apngasm_gui.
     5. Make animated GIF file using apng2gif_gui.
 
-There is no child unpack file here.
-You should add unpack file on DCGViewer\static\Korean, or download from https://github.com/Live2D-DCG/Live2D-DCG.github.io .
-
 And this is the method to add child unpack file.
 
-1. Copy child unpack file you want on DCGViewer\static\Korean.
-2. Change file names according to the condition. (Reference script: https://github.com/Live2D-DCG/DCG/blob/master/Live2D%20Scripts)
+1. Download .exe file on https://github.com/Live2D-DCG/DCG which is appropriate file for your pck file.
+2. Drag & Drop your PCK file to .exe file downloaded.
+3. Move the result folder to DCGViewer\static\Korean.
 
-if there are 3 txt files,
-
-    00000000.txt -> [dir_name]_attack.mtn
-    00000001.txt -> [dir_name]_hit.mtn
-    00000002.txt -> [dir_name]_idle.mtn
-    00000003.moc -> character.dat
-    00000004.dat -> MOC.[dir_name].json
-
-or if there are 4 txt files,
-
-    00000000.txt -> [dir_name]_attack.mtn
-    00000001.txt -> [dir_name]_banner.mtn
-    00000002.txt -> [dir_name]_hit.mtn
-    00000003.txt -> [dir_name]_idle.mtn
-    00000004.moc -> character.dat
-    00000005.dat -> MOC.[dir_name].json
-
-And, all of the png files should change texture_00.png, texture_01.png, ... as in order.
-
-if the file is spa character file,
-
-    00000000.moc -> character.dat
-    00000001.dat -> MOC.[dir_name].json
-    00000002.physics -> physics.json
-    00000003.txt -> [dir_name]_idle.mtn
-    00000004.txt -> [dir_name]_max.mtn
-    00000005.txt -> [dir_name]_maxtouch.mtn
-    00000006.txt -> [dir_name]_touch.mtn
-
-Also, all of the png files should change texture_00.png, texture_01.png, ... as in order.
