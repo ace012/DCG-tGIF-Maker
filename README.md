@@ -22,56 +22,19 @@ This tool is made by modifying some source codes of viewer site [Live2D-DCG.gith
 
 ## Usage
 
-This is the process how to make GIF file on local.
+This is the process how to make animated GIF.
 
-    1. Change the character canvas using reload, and get images (HQLS recommended). This process needs a few minutes.
+    1. Change the character and canvas settings using reload, and get images you want.
     2. Make animated PNG file using apngasm_gui.
     3. Make animated GIF file using apng2gif_gui.
 
-
-## Additional
-
-On the viewer site, there are Korean pck files only.
-
-But you can also extract images of other pck files, such as global (or teen) version, or custom pck files.
-
-I plan to add that more easy and comfortable version later, but I don't know when it will be.
-
-If you want to get ones right now, you can extract it as following this below.
+In a similar way, you can also make webp file using online converter site.
 
 
-### Caution
+## Apply Custom Texture Images
 
-If you will run viewer of this tool on web server, there is no problem.
+This is the process how to load custom texture images on the character.
 
-But if you just run viewer locally(maybe most of them), you should bypass one of the security policy, *CORS(Cross-Origin Resource Sharing)*.
-
-Thus, It is recommended to use other browser than using one now, and you must not enter any websites on that browser.
-
-You can bypass CORS in local html by adding "--allow-file-access-from-files" argument on shortcut of browser.
-
-This is the detail progress.
-
-    1. Make a shortcut of your browser used for viewer.
-    2. Right click the shortcut and press properties.
-    3. Add "--allow-file-access-from-files" text on the end of the Target Textbox.
-    4. Execute shortcut.
-
-
-### Usage
-
-This is the process how to make GIF file on local.
-
-    1. Open browser using shortcut.
-    1-1. Press F12 to open developer window. On the Network tab, switch online to offline.
-    2. Drag & Drop viewerK.html on browser.
-    3. Change the character canvas using reload, and get images (HQLS recommended). This process needs a few minutes.
-    4. Make animated PNG file using apngasm_gui.
-    5. Make animated GIF file using apng2gif_gui.
-
-And this is the method to add child unpack file.
-
-1. Download .exe file on https://github.com/Live2D-DCG/DCG which is appropriate file for your pck file.
-2. Drag & Drop your PCK file to .exe file downloaded.
-3. Move the result folder to DCGViewer\static\Korean.
-
+    1. Rename texture image file to texture_00.png
+      1-1. if there exists two images, rename texture_00.png and texture_01.png in order.
+    2. Click custom texture choice button and choose texture files.
