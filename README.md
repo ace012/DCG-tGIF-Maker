@@ -1,5 +1,5 @@
-DCG tGIF Maker
-================================
+# DCG tGIF Maker
+
 
 ## Description
 
